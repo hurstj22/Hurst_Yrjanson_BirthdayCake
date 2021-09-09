@@ -51,7 +51,7 @@
             android:clipToPadding="false"
             android:gravity="left"
             android:orientation="vertical"
-            android:padding="5sp">
+            android:padding="10sp">
 
             <TextView
                 android:id="@+id/CandlesTextView"
@@ -74,7 +74,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="left"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5sp">
 
             <android.support.v7.widget.SwitchCompat
                 android:layout_width="wrap_content"
@@ -86,7 +87,6 @@
                 android:id="@+id/candleSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:minHeight="48dp"
                 android:text="Candles" />
         </LinearLayout>
