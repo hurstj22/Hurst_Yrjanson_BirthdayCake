@@ -65,7 +65,9 @@
                 android:id="@+id/CandlesSeekBar"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:max="5"
+                android:progress="2" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,17 +80,20 @@
             android:padding="5sp">
 
             <android.support.v7.widget.SwitchCompat
+                android:id="@+id/frostingSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:text="Frosting " />
+                android:text="Frosting "
+                android:checked="true"/>
 
             <Switch
                 android:id="@+id/candleSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:text="Candles" />
+                android:text="Candles"
+                android:checked="true"/>
         </LinearLayout>
 
         <LinearLayout
@@ -110,6 +115,7 @@
                 android:id="@+id/byeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="goodbye"
                 android:text="Goodbye" />
         </LinearLayout>
 
