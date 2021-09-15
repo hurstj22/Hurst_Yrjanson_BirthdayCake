@@ -34,7 +34,7 @@ public class CakeView extends SurfaceView {
     public static final float outerFlameRadius = 30.0f;
     public static final float innerFlameRadius = 15.0f;
 
-
+    private CakeModel cake;
 
     /**
      * ctor must be overridden here as per standard Java inheritance practice.  We need it
@@ -62,6 +62,13 @@ public class CakeView extends SurfaceView {
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
+        //initialize cakemodel object
+        cake = new CakeModel();
+    }
+
+    //get method for CakeModel
+    public CakeModel getCakeModel(){
+        return new CakeModel();
     }
 
     /**
