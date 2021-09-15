@@ -4,8 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 
-public class CakeController implements View.OnClickListener{
+public class CakeController implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     private CakeView cakeV;
     private CakeModel cakeM;
@@ -22,5 +23,10 @@ public class CakeController implements View.OnClickListener{
         Log.d("blowOutButton", "Pressed!");
     }
 
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        cakeM.hasCandles = !cakeM.hasCandles;
+        cakeV.invalidate();
 
+    }
 }
