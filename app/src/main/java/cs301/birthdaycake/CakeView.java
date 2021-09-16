@@ -127,11 +127,14 @@ public class CakeView extends SurfaceView {
         //Then a second cake layer
         canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, cakePaint);
 
-        //Now a candle on the left side of the cake
-        drawCandle(canvas, cakeLeft + cakeWidth/3 - candleWidth/2, cakeTop);
+        //Candles evenly spaced out on the cake according to the number of candles set on the SeekBar
+        for(int i = 1; i <= cake.candlesNum; i++){
+            drawCandle(canvas,cakeLeft + (i*cakeWidth)/(cake.candlesNum+1) - i*candleWidth/2, cakeTop);
+        }
+        //drawCandle(canvas, cakeLeft + cakeWidth/3 - candleWidth/2, cakeTop);
 
         //Now a candle on the right side of the cake
-        drawCandle(canvas, cakeLeft + 2*cakeWidth/3 - candleWidth/2, cakeTop);
+        //drawCandle(canvas, cakeLeft + 2*cakeWidth/3 - candleWidth/2, cakeTop);
 
 
     }//onDraw
