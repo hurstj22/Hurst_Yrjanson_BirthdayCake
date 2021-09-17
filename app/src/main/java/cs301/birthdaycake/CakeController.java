@@ -7,11 +7,14 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 
+import java.util.Random;
+
 public class CakeController implements View.OnClickListener, CompoundButton.OnCheckedChangeListener,
         SeekBar.OnSeekBarChangeListener{
 
     private CakeView cakeV;
     private CakeModel cakeM;
+    static public Random rand = new Random();
 
     public CakeController(CakeView cakeView){
         cakeV = cakeView;
@@ -27,8 +30,16 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-        cakeM.hasCandles = !cakeM.hasCandles;
-        cakeV.invalidate();
+        switch(compoundButton.getId()) {
+            case (R.id.candleSwitch):
+                cakeM.hasCandles = !cakeM.hasCandles;
+                cakeV.invalidate();
+                break;
+            case (R.id.frostingSwitch):
+                cakeM.frostingColor.setARGB(255, rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
+                cakeV.invalidate();
+                break;
+        }
 
     }
 

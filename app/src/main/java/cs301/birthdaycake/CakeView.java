@@ -7,11 +7,13 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
 
+import java.util.Random;
+
 public class CakeView extends SurfaceView {
 
     /* These are the paints we'll use to draw the birthday cake below */
     Paint cakePaint = new Paint();
-    Paint frostingPaint = new Paint();
+    //Paint frostingPaint = new Paint();
     Paint candlePaint = new Paint();
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
@@ -49,8 +51,6 @@ public class CakeView extends SurfaceView {
         //Setup our palette
         cakePaint.setColor(0xFFC755B5);  //violet-red
         cakePaint.setStyle(Paint.Style.FILL);
-        frostingPaint.setColor(0xFFFFFACD);  //pale yellow
-        frostingPaint.setStyle(Paint.Style.FILL);
         candlePaint.setColor(0xFF32CD32);  //lime green
         candlePaint.setStyle(Paint.Style.FILL);
         outerFlamePaint.setColor(0xFFFFD700);  //gold yellow
@@ -110,7 +110,7 @@ public class CakeView extends SurfaceView {
         float bottom = cakeTop + frostHeight;
 
         //Frosting on top
-        canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, frostingPaint);
+        canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, cake.frostingColor);
         top += frostHeight;
         bottom += layerHeight;
 
@@ -120,7 +120,7 @@ public class CakeView extends SurfaceView {
         bottom += frostHeight;
 
         //Then a second frosting layer
-        canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, frostingPaint);
+        canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, cake.frostingColor);
         top += frostHeight;
         bottom += layerHeight;
 
@@ -131,11 +131,6 @@ public class CakeView extends SurfaceView {
         for(int i = 1; i <= cake.candlesNum; i++){
             drawCandle(canvas,cakeLeft + (i*cakeWidth)/(cake.candlesNum+1) - i*candleWidth/2, cakeTop);
         }
-        //drawCandle(canvas, cakeLeft + cakeWidth/3 - candleWidth/2, cakeTop);
-
-        //Now a candle on the right side of the cake
-        //drawCandle(canvas, cakeLeft + 2*cakeWidth/3 - candleWidth/2, cakeTop);
-
 
     }//onDraw
 
